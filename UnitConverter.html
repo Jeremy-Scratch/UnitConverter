@@ -7,29 +7,31 @@
     <title>UnitConverter</title>
 </head>
 <body>
+<div class="grid-container">
     <header id="header">
-        <h1>My GameStore Api ☺ </h1>
+        <h1>Unit Converter ☺</h1>
     </header>
 
     <div id="converterBox">
-            <form>
-            <label for="message">Name:</label>
-            <textarea id="message" name="message" rows="1" cols="20" placeholder="Game name"></textarea>
-        </form>
-
             <select name="myDropdown" id="myDropdown">
-            <option value="option1">Fight</option>
-            <option value="option2">RPG</option>
-            <option value="option3">Sports</option>
-            <option value="option3">Racing</option>
-            <option value="option3">Kids and Family</option>
-            <option value="option4" selected> (Select Genre)</option>
+            <option value="option1">Longitude</option>
+            <option value="option2">Weight</option>
+            <option value="option3">Temperature</option>
+            <option value="option4" selected> (Select)</option>
         </select>
+        <div style="padding: 30px;" >
+            <form>
+            <textarea id="message" name="message" rows="2" cols="20" placeholder="unit"></textarea>
+            <label>=</label>
+            <textarea rows="2" cols="20" placeholder="unit converted"></textarea>
+            </form>
+        </div>
     </div>
 
     <footer id="footer">
-        <p>&copy;2025 My GameStore Api</p>
+        <p><b>&copy;2025 Unit Converter</b></p>
+        <p id="Scratch"><strong>&copy;Scratch</strong></p>
     </footer>
-    
+</div>
 </body>
 </html>
