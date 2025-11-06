@@ -1,0 +1,13 @@
+
+@keyframes switchanime {
+  from  {transform:rotatez(0deg) ; }
+  to  {transform:rotatez(360deg) ; }
+}
+
+@keyframes myAnimation {
+  0%   {transform:rotatez(0deg);color:red; left:0px; top:0px;}
+  25%  {transform:rotatez(1000deg) ;color:rgb(234, 0, 255); left:100px; top:0px;}
+  50%  {transform:rotatey(180deg)scale(0.5);color:blue; left:200px; top:0px;}
+  75%  {transform:rotatez(360deg)scale(1.5);color:green; left:200px; top:15px;}
+  100% {transform:rotatez(720deg);color:red; left:0px; top:0px;}
+}
