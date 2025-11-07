@@ -1,7 +1,7 @@
+import {tempConverter,unitOption,inputElement } from "./UnitOperations.js";
 
-
+let button = document.getElementById('label');
 let unitType = document.getElementById('myDropdown');
-const inputElement = document.getElementById('input');
 
 unitType.addEventListener('change', function(){
     if(unitType.value==='Longitude'){
@@ -18,104 +18,97 @@ unitType.addEventListener('change', function(){
     }
 });
 
-inputElement.addEventListener('input',function () {
-    let input = inputElement.value;
-console.log(input);
-    
-});
+inputElement.addEventListener('input',tempConverter)
 
-function LongitudeOperations(input) {
-    
-}
 
 function inputDdLongitude() {
 
     let option1 = document.getElementById('option1');
-    option1.textContent = 'kilometer';
+    option1.value = option1.textContent = 'kilometer';
     let option2 = document.getElementById('option2');
-    option2.textContent = 'meter';
+    option2.value = option2.textContent = 'meter';
     let option3 = document.getElementById('option3');
-    option3.textContent = 'centimetre';
+    option3.value = option3.textContent = 'centimetre';
     let option4 = document.getElementById('option4');
-    option4.textContent = 'millimeter';
+    option4.value = option4.textContent = 'millimeter';
     let option5 = document.getElementById('option5');
-    option5.textContent = 'mile';
+    option5.value = option5.textContent = 'mile';
     let option6 = document.getElementById('option6');
-    option6.textContent = 'yard';
+    option6.value = option6.textContent = 'yard';
     let option7 = document.getElementById('option7');
-    option7.textContent = 'foot';
+    option7.value = option7.textContent = 'foot';
     let option8 = document.getElementById('option8');
-    option8.textContent = 'inch';
+    option8.value = option8.textContent = 'inch';
 }
 
 function outputDdLongitude() {
 
     let option11 = document.getElementById('option11');
-    option11.textContent = 'kilometer';
+    option11.value = option11.textContent = 'kilometer';
     let option22 = document.getElementById('option22');
-    option22.textContent = 'meter';
+    option22.value = option22.textContent = 'meter';
     let option33 = document.getElementById('option33');
-    option33.textContent = 'centimetre';
+    option33.value = option33.textContent = 'centimetre';
     let option44 = document.getElementById('option44');
-    option44.textContent = 'millimeter';
-    let option52 = document.getElementById('option55');
-    option52.textContent = 'mile';
+    option44.value = option44.textContent = 'millimeter';
+    let option55 = document.getElementById('option55');
+    option55.value = option55.textContent = 'mile';
     let option66 = document.getElementById('option66');
-    option66.textContent = 'yard';
+    option66.value = option66.textContent = 'yard';
     let option77 = document.getElementById('option77');
-    option77.textContent = 'foot';
+    option77.value = option77.textContent = 'foot';
     let option88 = document.getElementById('option88');
-    option88.textContent = 'inch';
+    option88.value = option88.textContent = 'inch';
 }
 
 function inputDdTemperature() {
 
     let option1 = document.getElementById('option1');
-    option1.textContent = 'celsius';
+    option1.value = option1.textContent = 'celsius';
     let option2 = document.getElementById('option2');
-    option2.textContent = 'fahrenheit';
+    option2.value = option2.textContent = 'fahrenheit';
     let option3 = document.getElementById('option3');
-    option3.textContent = 'kelvin';
+    option3.value = option3.textContent = 'kelvin';
 }
 
 function outputDdTemperature() {
 
     let option11 = document.getElementById('option11');
-    option11.textContent = 'celsius';
+    option11.value = option11.textContent = 'celsius';
     let option22 = document.getElementById('option22');
-    option22.textContent = 'fahrenheit';
+    option22.value = option22.textContent = 'fahrenheit';
     let option33 = document.getElementById('option33');
-    option33.textContent = 'kelvin';
+    option33.value = option33.textContent = 'kelvin';
 }
 
 function inputDdweight() {
 
     let option1 = document.getElementById('option1');
-    option1.textContent = 'ton';
+    option1.value = option1.textContent = 'ton';
     let option2 = document.getElementById('option2');
-    option2.textContent = 'kilogram';
+    option2.value = option2.textContent = 'kilogram';
     let option3 = document.getElementById('option3');
-    option3.textContent = 'gram';
+    option3.value = option3.textContent = 'gram';
     let option4 = document.getElementById('option4');
-    option4.textContent = 'miligram';
+    option4.value = option4.textContent = 'miligram';
     let option5 = document.getElementById('option5');
-    option5.textContent = 'pound';
+    option5.value = option5.textContent = 'pound';
     let option6 = document.getElementById('option6');
-    option6.textContent = 'ounce';
+    option6.value = option6.textContent = 'ounce';
 }
 
 function outputDdweight() {
 
     let option11 = document.getElementById('option11');
-    option11.textContent = 'ton';
+    option11.value = option11.textContent = 'ton';
     let option22 = document.getElementById('option22');
-    option22.textContent = 'kilogram';
+    option22.value = option22.textContent = 'kilogram';
     let option33 = document.getElementById('option33');
-    option33.textContent = 'gram';
+    option33.value = option33.textContent = 'gram';
     let option44 = document.getElementById('option44');
-    option44.textContent = 'miligram';
-    let option52 = document.getElementById('option55');
-    option52.textContent = 'pound';
+    option44.value = option44.textContent = 'miligram';
+    let option55 = document.getElementById('option55');
+    option55.value = option55.textContent = 'pound';
     let option66 = document.getElementById('option66');
-    option66.textContent = 'ounce';
+    option66.value = option66.textContent = 'ounce';
 }
