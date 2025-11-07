@@ -62,8 +62,8 @@
 #converterBox {
     
     margin: auto;
-    margin-top: 3%;
-    margin-bottom: 4%;
+    margin-top: 1%;
+    margin-bottom: 1%;
     display: grid;
     place-content: center;
     height: 300px;
@@ -73,10 +73,38 @@
 }
 
 #myDropdown {
-    appearance: base-select;
+   
+    height: 35px;
+    width: 380px;
+    margin: auto;
 }
+#myDropdown1 {
+  
+    margin-right: 15px;
+    height: 30px;
+    width: 170px;
+
+}
+#myDropdown2 {
+    margin-left: 21px;
+    
+    height: 30px;
+    width: 170px;
+}
+
+
 #gridBox {
     padding: 30px;
+}
+select{
+    appearance: flat;
+    text-align: center;
+    margin: auto;
+}
+
+input {
+    height: 35px;
+    text-align: center;
 }
 #label{
     vertical-align:top;
@@ -94,9 +122,9 @@
   width: 70px;
   height: 50px;
   position:relative;
-  animation-name: myAnimation;
+  /* animation-name: myAnimation;
   animation-duration: 400s;
-  animation-iteration-count: infinite;
+  animation-iteration-count: infinite; */
 }
 
 #lightswitch{

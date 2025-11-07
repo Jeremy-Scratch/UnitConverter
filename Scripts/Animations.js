@@ -15,6 +15,8 @@ lightswitch.addEventListener("click",function () {
     }
 });
 
+//         --------------     FUTURE FEATURE LIGHT/DARK MODE -----------------
+
 // function darkMode() {
 //     document.body.style.backgroundColor ='black';
 //     gridContainer.style.backgroundColor='black';
