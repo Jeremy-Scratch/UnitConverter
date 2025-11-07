@@ -1,7 +1,7 @@
 import {tempConverter,unitOption,inputElement } from "./UnitOperations.js";
 
 let button = document.getElementById('label');
-let unitType = document.getElementById('myDropdown');
+export let unitType = document.getElementById('myDropdown');
 
 unitType.addEventListener('change', function(){
     if(unitType.value==='Longitude'){
