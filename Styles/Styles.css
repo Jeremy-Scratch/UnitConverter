@@ -142,7 +142,7 @@ input {
     height:70px;
     border-radius: 100px 100px 100px 100px;
     animation: switchanime 10s linear infinite;
-    transition:all 0.3s ease;
+    transition: opacity 0.2s ease-in-out;
 
     /* animation-duration: 4s;
     animation-timing-function: linear;
