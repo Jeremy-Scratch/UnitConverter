@@ -66,6 +66,21 @@ function conversionHandler() {
 inputElement.addEventListener('input', conversionHandler);
 unitOption.addEventListener('change', conversionHandler);
 unitOption2.addEventListener('change', conversionHandler);
+outputElement.addEventListener('input', function () {
+    const outputValue =parseFloat(outputElement.value);
+    const toUnit = unitOption.value;
+    const fromUnit = unitOption2.value;
+    const category = unitType.value;
+    let result;
+
+    if (isNaN(outputValue)) 
+    return inputElement.value = ''; 
+
+    result = convert(outputValue, fromUnit, toUnit, category);
+    if (result !== null) 
+    inputElement.value = Math.round(result * 10000) / 10000;
+
+});
 
 function selectPopulate(category) {
 
