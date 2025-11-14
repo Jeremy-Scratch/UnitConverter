@@ -1,8 +1,8 @@
 
 let lightswitch = document.getElementById('lightswitch');
-let gridContainer = document.getElementsByTagName('div')
+lightswitch.classList.add('continuous-spin');
 
-lightswitch.addEventListener("click", () => {
+lightswitch.addEventListener("dblclick", () => {
      if (lightswitch.src.endsWith('Media/agumonsymbol.png')) {
 
         lightswitch.style.opacity =0;
@@ -10,9 +10,6 @@ lightswitch.addEventListener("click", () => {
             lightswitch.src ='Media/gabumonsymbol.png';
             lightswitch.style.opacity = 1;
         },200);
-
-        
-        // darkMode();
     } 
     else{
 
@@ -21,19 +18,28 @@ lightswitch.addEventListener("click", () => {
             lightswitch.src ='Media/agumonsymbol.png';
             lightswitch.style.opacity = 1;
         },200);
-
-        // lightMode();
     }
 });
 
-//         --------------     FUTURE FEATURE LIGHT/DARK MODE -----------------
+lightswitch.addEventListener("click", () => {
 
-// function darkMode() {
-//     document.body.style.backgroundColor ='black';
-//     gridContainer.style.backgroundColor='black';
-// }
+    lightswitch.classList.remove('continuous-spin');
+    lightswitch.classList.remove('accelerate-spin');
+    void lightswitch.offsetWidth;
 
-// function lightMode() {
-//     document.body.style.backgroundColor ='white';
+    lightswitch.classList.add('accelerate-spin');
+
+});
+
+lightswitch.addEventListener("animationend", () => {
+   if (lightswitch.classList.contains('accelerate-spin')) {
     
-// }
+    lightswitch.classList.remove('accelerate-spin');
+    lightswitch.classList.add('continuous-spin');
+   }
+});
+
+
+
+
+//         --------------     FUTURE FEATURE LIGHT/DARK MODE -----------------
