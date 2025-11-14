@@ -15,6 +15,7 @@ unitType.addEventListener('change', function () {
         inputDdTemperature();
         outputDdTemperature();
     }
+    conversionHandler();
 });
 
 function conversionHandler() {
@@ -24,15 +25,12 @@ function conversionHandler() {
     const toUnit = unitOption2.value;
     const category = unitType.value;
 
-    console.log(tempConverter());
-
     if (isNaN(inputValue)) {
         outputElement.value = '';
         return;
     }
 
     let result;
-
     if (category === 'Temperature') {
         result = tempConverter();
     }
@@ -48,6 +46,8 @@ function conversionHandler() {
 }
 
 inputElement.addEventListener('input', conversionHandler);
+unitOption.addEventListener('change', conversionHandler);
+unitOption2.addEventListener('change', conversionHandler);
 
 function inputDdLongitude() {
 
