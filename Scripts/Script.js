@@ -23,18 +23,11 @@ const SELECT_RULES = {
         select4: 'milligram',
         select5: 'pound',
         select6: 'ounce',
-        select7: '',
-        select8: '',
     },
     Temperature: {
         select1: 'celsius',
         select2: 'fahrenheit',
         select3: 'kelvin',
-        select4: '',
-        select5: '',
-        select6: '',
-        select7: '',
-        select8: '',
     }
 }
 
@@ -78,38 +71,21 @@ unitOption2.addEventListener('change', conversionHandler);
 function selectPopulate(category) {
 
     const rules = SELECT_RULES[category];
+    unitOption.innerHTML = '';
+    unitOption2.innerHTML = '';
+
     //INPUT-SELECT OPTIONS
-    let option1 = document.getElementById('option1');
-    option1.value = option1.textContent = rules.select1;
-    let option2 = document.getElementById('option2');
-    option2.value = option2.textContent = rules.select2;
-    let option3 = document.getElementById('option3');
-    option3.value = option3.textContent = rules.select3;
-    let option4 = document.getElementById('option4');
-    option4.value = option4.textContent = rules.select4;
-    let option5 = document.getElementById('option5');
-    option5.value = option5.textContent = rules.select5;
-    let option6 = document.getElementById('option6');
-    option6.value = option6.textContent = rules.select6;
-    let option7 = document.getElementById('option7');
-    option7.value = option7.textContent = rules.select7;
-    let option8 = document.getElementById('option8');
-    option8.value = option8.textContent = rules.select8;
+    for (const key in rules) {
+        let option = document.createElement('option');
+        option.value = rules[key];
+        option.textContent = rules[key];
+        unitOption.appendChild(option);
+    }
     //OUTPUT-SELECT OPTIONS
-    let option11 = document.getElementById('option11');
-    option11.value = option11.textContent = rules.select1;
-    let option22 = document.getElementById('option22');
-    option22.value = option22.textContent = rules.select2;
-    let option33 = document.getElementById('option33');
-    option33.value = option33.textContent = rules.select3;
-    let option44 = document.getElementById('option44');
-    option44.value = option44.textContent = rules.select4;
-    let option55 = document.getElementById('option55');
-    option55.value = option55.textContent = rules.select5;
-    let option66 = document.getElementById('option66');
-    option66.value = option66.textContent = rules.select6;
-    let option77 = document.getElementById('option77');
-    option77.value = option77.textContent = rules.select7;
-    let option88 = document.getElementById('option88');
-    option88.value = option88.textContent = rules.select8;
+    for (const key in rules) {
+        let option = document.createElement('option');
+        option.value = rules[key];
+        option.textContent = rules[key];
+        unitOption2.appendChild(option);
+    }
 }
