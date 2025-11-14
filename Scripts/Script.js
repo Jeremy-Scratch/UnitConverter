@@ -1,25 +1,53 @@
-import {tempConverter,unitOption,inputElement } from "./UnitOperations.js";
+import { convert, tempConverter, unitOption, unitOption2, inputElement, outputElement } from "./UnitOperations.js";
 
-let button = document.getElementById('label');
-export let unitType = document.getElementById('myDropdown');
+const unitType = document.getElementById('myDropdown');
 
-unitType.addEventListener('change', function(){
-    if(unitType.value==='Longitude'){
+unitType.addEventListener('change', function () {
+    if (unitType.value === 'Length') {
         inputDdLongitude();
         outputDdLongitude();
     }
-    if (unitType.value==='Weight') {
+    if (unitType.value === 'Mass') {
         inputDdweight();
         outputDdweight();
-    } 
-    if (unitType.value==='Temperature') {
+    }
+    if (unitType.value === 'Temperature') {
         inputDdTemperature();
         outputDdTemperature();
     }
 });
 
-inputElement.addEventListener('input',tempConverter)
+function conversionHandler() {
 
+    const inputValue = parseFloat(inputElement.value);
+    const fromUnit = unitOption.value;
+    const toUnit = unitOption2.value;
+    const category = unitType.value;
+
+    console.log(tempConverter());
+
+    if (isNaN(inputValue)) {
+        outputElement.value = '';
+        return;
+    }
+
+    let result;
+
+    if (category === 'Temperature') {
+        result = tempConverter();
+    }
+    else {
+        result = convert(inputValue, fromUnit, toUnit, category);
+    }
+
+    if (result !== null) {
+        outputElement.value = Math.round(result * 10000) / 10000;
+    } else {
+        outputElement.value = 'Error';
+    }
+}
+
+inputElement.addEventListener('input', conversionHandler);
 
 function inputDdLongitude() {
 
@@ -28,7 +56,7 @@ function inputDdLongitude() {
     let option2 = document.getElementById('option2');
     option2.value = option2.textContent = 'meter';
     let option3 = document.getElementById('option3');
-    option3.value = option3.textContent = 'centimetre';
+    option3.value = option3.textContent = 'centimeter';
     let option4 = document.getElementById('option4');
     option4.value = option4.textContent = 'millimeter';
     let option5 = document.getElementById('option5');
@@ -48,7 +76,7 @@ function outputDdLongitude() {
     let option22 = document.getElementById('option22');
     option22.value = option22.textContent = 'meter';
     let option33 = document.getElementById('option33');
-    option33.value = option33.textContent = 'centimetre';
+    option33.value = option33.textContent = 'centimeter';
     let option44 = document.getElementById('option44');
     option44.value = option44.textContent = 'millimeter';
     let option55 = document.getElementById('option55');
@@ -90,7 +118,7 @@ function inputDdweight() {
     let option3 = document.getElementById('option3');
     option3.value = option3.textContent = 'gram';
     let option4 = document.getElementById('option4');
-    option4.value = option4.textContent = 'miligram';
+    option4.value = option4.textContent = 'milligram';
     let option5 = document.getElementById('option5');
     option5.value = option5.textContent = 'pound';
     let option6 = document.getElementById('option6');
@@ -106,7 +134,7 @@ function outputDdweight() {
     let option33 = document.getElementById('option33');
     option33.value = option33.textContent = 'gram';
     let option44 = document.getElementById('option44');
-    option44.value = option44.textContent = 'miligram';
+    option44.value = option44.textContent = 'milligram';
     let option55 = document.getElementById('option55');
     option55.value = option55.textContent = 'pound';
     let option66 = document.getElementById('option66');

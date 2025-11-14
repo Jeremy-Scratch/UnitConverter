@@ -1,4 +1,3 @@
-import {unitType} from "./Script.js";
 export let inputElement = document.getElementById('input');
 export let outputElement = document.getElementById('output');
 export let unitOption = document.getElementById('myDropdown1');
@@ -6,7 +5,7 @@ export let unitOption2 = document.getElementById('myDropdown2');
 const kelvin = 273.15;
 
 /** 
-* @param {number} value 
+* @param {number} inputValue 
 * @param {string} fromUnit
 * @param {string} toUnit
 * @param {string} category
@@ -36,39 +35,46 @@ const CONVERSION_RULES = {
 
 
 export function tempConverter() {
-
+    let convertedValue;
     switch (true) {
         case unitOption.value === 'celsius':
             if (unitOption2.value === 'kelvin') {
-                outputElement.value = Number(inputElement.value) + kelvin;
+               convertedValue = Number(inputElement.value) + kelvin;
             }
             if (unitOption2.value === 'fahrenheit') {
-                outputElement.value = (Number(inputElement.value) * 9 / 5) + 32;
+                convertedValue = (Number(inputElement.value) * 9 / 5) + 32;
             }
             break;
         case unitOption.value === 'kelvin': 
             if (unitOption2.value === 'celsius') {
-                outputElement.value = Number(inputElement.value) - kelvin;
+                convertedValue = Number(inputElement.value) - kelvin;
             }
             if (unitOption2.value === 'fahrenheit') {
-                outputElement.value = (Number(inputElement.value)- kelvin) * 9 / 5 + 32;
+                convertedValue = (Number(inputElement.value)- kelvin) * 9 / 5 + 32;
             }
             break;
         case unitOption.value === 'fahrenheit':
             if (unitOption2.value === 'celsius') {
-                outputElement.value = (Number(inputElement.value) - 32)  * 5 / 9;
+                convertedValue = (Number(inputElement.value) - 32)  * 5 / 9;
             }
             if (unitOption2.value === 'kelvin') {
-                outputElement.value = (Number(inputElement.value)- 32) * 5 / 9 + kelvin;
+                convertedValue = (Number(inputElement.value)- 32) * 5 / 9 + kelvin;
             }
             break;
     }
+    return convertedValue;
 }
 
-function convert(value,fromUnit,toUnit,category) {
+export function convert(inputValue,fromUnit,toUnit,category) {
 
     const rules = CONVERSION_RULES[category];
-    const baseUnit = value * rules[fromUnit];
+
+    if (!rules || !rules[fromUnit] || !rules[toUnit]) {
+    console.error("Invalid unit or category for conversion.");
+    return null;
+    }
+
+    const baseUnit = inputValue * rules[fromUnit];
     const convertedValue = baseUnit / rules[toUnit];
 
     return convertedValue;
