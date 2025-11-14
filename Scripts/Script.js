@@ -1,20 +1,46 @@
 import { convert, tempConverter, unitOption, unitOption2, inputElement, outputElement } from "./UnitOperations.js";
-
 const unitType = document.getElementById('myDropdown');
 
+/** 
+* @param {string} category
+*/
+
+const SELECT_RULES = {
+    Length: {
+        select1: 'kilometer',
+        select2: 'meter',
+        select3: 'centimeter',
+        select4: 'millimeter',
+        select5: 'mile',
+        select6: 'yard',
+        select7: 'foot',
+        select8: 'inch',
+    },
+    Mass: {
+        select1: 'ton',
+        select2: 'kilogram',
+        select3: 'gram',
+        select4: 'milligram',
+        select5: 'pound',
+        select6: 'ounce',
+        select7: '',
+        select8: '',
+    },
+    Temperature: {
+        select1: 'celsius',
+        select2: 'fahrenheit',
+        select3: 'kelvin',
+        select4: '',
+        select5: '',
+        select6: '',
+        select7: '',
+        select8: '',
+    }
+}
+
 unitType.addEventListener('change', function () {
-    if (unitType.value === 'Length') {
-        inputDdLongitude();
-        outputDdLongitude();
-    }
-    if (unitType.value === 'Mass') {
-        inputDdweight();
-        outputDdweight();
-    }
-    if (unitType.value === 'Temperature') {
-        inputDdTemperature();
-        outputDdTemperature();
-    }
+    const category = unitType.value;
+    selectPopulate(category);
     conversionHandler();
 });
 
@@ -49,168 +75,41 @@ inputElement.addEventListener('input', conversionHandler);
 unitOption.addEventListener('change', conversionHandler);
 unitOption2.addEventListener('change', conversionHandler);
 
-function inputDdLongitude() {
-
-    let option1 = document.getElementById('option1');
-    option1.value = option1.textContent = 'kilometer';
-    let option2 = document.getElementById('option2');
-    option2.value = option2.textContent = 'meter';
-    let option3 = document.getElementById('option3');
-    option3.value = option3.textContent = 'centimeter';
-    let option4 = document.getElementById('option4');
-    option4.value = option4.textContent = 'millimeter';
-    let option5 = document.getElementById('option5');
-    option5.value = option5.textContent = 'mile';
-    let option6 = document.getElementById('option6');
-    option6.value = option6.textContent = 'yard';
-    let option7 = document.getElementById('option7');
-    option7.value = option7.textContent = 'foot';
-    let option8 = document.getElementById('option8');
-    option8.value = option8.textContent = 'inch';
-}
-
-function outputDdLongitude() {
-
-    let option11 = document.getElementById('option11');
-    option11.value = option11.textContent = 'kilometer';
-    let option22 = document.getElementById('option22');
-    option22.value = option22.textContent = 'meter';
-    let option33 = document.getElementById('option33');
-    option33.value = option33.textContent = 'centimeter';
-    let option44 = document.getElementById('option44');
-    option44.value = option44.textContent = 'millimeter';
-    let option55 = document.getElementById('option55');
-    option55.value = option55.textContent = 'mile';
-    let option66 = document.getElementById('option66');
-    option66.value = option66.textContent = 'yard';
-    let option77 = document.getElementById('option77');
-    option77.value = option77.textContent = 'foot';
-    let option88 = document.getElementById('option88');
-    option88.value = option88.textContent = 'inch';
-}
-
-function inputDdTemperature() {
-
-    let option1 = document.getElementById('option1');
-    option1.value = option1.textContent = 'celsius';
-    let option2 = document.getElementById('option2');
-    option2.value = option2.textContent = 'fahrenheit';
-    let option3 = document.getElementById('option3');
-    option3.value = option3.textContent = 'kelvin';
-}
-
-function outputDdTemperature() {
-
-    let option11 = document.getElementById('option11');
-    option11.value = option11.textContent = 'celsius';
-    let option22 = document.getElementById('option22');
-    option22.value = option22.textContent = 'fahrenheit';
-    let option33 = document.getElementById('option33');
-    option33.value = option33.textContent = 'kelvin';
-}
-
-function inputDdweight() {
-
-    let option1 = document.getElementById('option1');
-    option1.value = option1.textContent = 'ton';
-    let option2 = document.getElementById('option2');
-    option2.value = option2.textContent = 'kilogram';
-    let option3 = document.getElementById('option3');
-    option3.value = option3.textContent = 'gram';
-    let option4 = document.getElementById('option4');
-    option4.value = option4.textContent = 'milligram';
-    let option5 = document.getElementById('option5');
-    option5.value = option5.textContent = 'pound';
-    let option6 = document.getElementById('option6');
-    option6.value = option6.textContent = 'ounce';
-}
-
-function outputDdweight() {
-
-    let option11 = document.getElementById('option11');
-    option11.value = option11.textContent = 'ton';
-    let option22 = document.getElementById('option22');
-    option22.value = option22.textContent = 'kilogram';
-    let option33 = document.getElementById('option33');
-    option33.value = option33.textContent = 'gram';
-    let option44 = document.getElementById('option44');
-    option44.value = option44.textContent = 'milligram';
-    let option55 = document.getElementById('option55');
-    option55.value = option55.textContent = 'pound';
-    let option66 = document.getElementById('option66');
-    option66.value = option66.textContent = 'ounce';
-}
-
-
-const SELECT_RULES = {
-    Length: {
-        option1: 'kilometer',
-        option2: 'meter',
-        option3: 'centimeter',
-        option4: 'millimeter',
-        option5: 'mile',
-        option6: 'yard',
-        option7: 'foot',
-        option8: 'inch',
-        
-    },
-    Mass: {
-        option1: 'ton',
-        option2: 'kilogram',
-        option3: 'gram',
-        option4: 'milligram',
-        option5: 'pound',
-        option6: 'ounce',
-        option7: '',
-        option8: '',
-    },
-    Temperature: {
-        option1: 'celsius',
-        option2: 'fahrenheit',
-        option3: 'kelvin',
-        option4: '',
-        option5: '',
-        option6: '',
-        option7: '',
-        option8: '',
-    }
-}
-
 function selectPopulate(category) {
 
     const rules = SELECT_RULES[category];
     //INPUT-SELECT OPTIONS
     let option1 = document.getElementById('option1');
-    option1.value = option1.textContent = rules[option1];
+    option1.value = option1.textContent = rules.select1;
     let option2 = document.getElementById('option2');
-    option2.value = option2.textContent = rules[option2];
+    option2.value = option2.textContent = rules.select2;
     let option3 = document.getElementById('option3');
-    option3.value = option3.textContent = rules[option3];
+    option3.value = option3.textContent = rules.select3;
     let option4 = document.getElementById('option4');
-    option4.value = option4.textContent = rules[option4];
+    option4.value = option4.textContent = rules.select4;
     let option5 = document.getElementById('option5');
-    option5.value = option5.textContent = rules[option5];
+    option5.value = option5.textContent = rules.select5;
     let option6 = document.getElementById('option6');
-    option6.value = option6.textContent = rules[option6];
+    option6.value = option6.textContent = rules.select6;
     let option7 = document.getElementById('option7');
-    option7.value = option7.textContent = rules[option7];
+    option7.value = option7.textContent = rules.select7;
     let option8 = document.getElementById('option8');
-    option8.value = option8.textContent = rules[option8];
+    option8.value = option8.textContent = rules.select8;
     //OUTPUT-SELECT OPTIONS
     let option11 = document.getElementById('option11');
-    option11.value = option11.textContent = rules[option1];
+    option11.value = option11.textContent = rules.select1;
     let option22 = document.getElementById('option22');
-    option22.value = option22.textContent = rules[option2];
+    option22.value = option22.textContent = rules.select2;
     let option33 = document.getElementById('option33');
-    option33.value = option33.textContent = rules[option3];
+    option33.value = option33.textContent = rules.select3;
     let option44 = document.getElementById('option44');
-    option44.value = option44.textContent = rules[option4];
+    option44.value = option44.textContent = rules.select4;
     let option55 = document.getElementById('option55');
-    option55.value = option55.textContent = rules[option5];
+    option55.value = option55.textContent = rules.select5;
     let option66 = document.getElementById('option66');
-    option66.value = option66.textContent = rules[option6];
+    option66.value = option66.textContent = rules.select6;
     let option77 = document.getElementById('option77');
-    option77.value = option77.textContent = rules[option7];
+    option77.value = option77.textContent = rules.select7;
     let option88 = document.getElementById('option88');
-    option88.value = option88.textContent = rules[option8];
+    option88.value = option88.textContent = rules.select8;
 }

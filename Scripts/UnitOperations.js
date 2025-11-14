@@ -9,7 +9,6 @@ const kelvin = 273.15;
 * @param {string} fromUnit
 * @param {string} toUnit
 * @param {string} category
-*
 */
 
 const CONVERSION_RULES = {
@@ -32,7 +31,6 @@ const CONVERSION_RULES = {
         ounce: 28.3495,
     }
 }
-
 
 export function tempConverter() {
     let convertedValue;
