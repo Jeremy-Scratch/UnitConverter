@@ -40,16 +40,15 @@ unitType.addEventListener('change', function () {
 function conversionHandler() {
 
     const inputValue = parseFloat(inputElement.value);
+    const outputValue =parseFloat(outputElement.value);
     const fromUnit = unitOption.value;
     const toUnit = unitOption2.value;
     const category = unitType.value;
-
-    if (isNaN(inputValue)) {
-        outputElement.value = '';
-        return;
-    }
-
     let result;
+
+    if (isNaN(inputValue)) 
+    return outputElement.value = ''; 
+
     if (category === 'Temperature') {
         result = tempConverter();
     }
